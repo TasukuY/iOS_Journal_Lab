@@ -12,6 +12,10 @@
 		7EDA1216259D233600BBD350 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDA1214259D233600BBD350 /* Main.storyboard */; };
 		7EDA1218259D233700BBD350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EDA1217259D233700BBD350 /* Assets.xcassets */; };
 		7EDA121B259D233700BBD350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EDA1219259D233700BBD350 /* LaunchScreen.storyboard */; };
+		C95516DB2804C0BB00992EDD /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95516DA2804C0BB00992EDD /* Entry.swift */; };
+		C95516DD2804C51300992EDD /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95516DC2804C51300992EDD /* EntryController.swift */; };
+		C95516DF2804C84600992EDD /* EntryListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95516DE2804C84600992EDD /* EntryListTableViewController.swift */; };
+		C95516E12804CBF800992EDD /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95516E02804CBF800992EDD /* EntryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		7EDA1217259D233700BBD350 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EDA121A259D233700BBD350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7EDA121C259D233700BBD350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95516DA2804C0BB00992EDD /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		C95516DC2804C51300992EDD /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
+		C95516DE2804C84600992EDD /* EntryListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListTableViewController.swift; sourceTree = "<group>"; };
+		C95516E02804CBF800992EDD /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,8 @@
 		C95516D72804C00400992EDD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C95516DE2804C84600992EDD /* EntryListTableViewController.swift */,
+				C95516E02804CBF800992EDD /* EntryDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -101,6 +111,7 @@
 		C95516D82804C00A00992EDD /* ModelControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C95516DC2804C51300992EDD /* EntryController.swift */,
 			);
 			path = ModelControllers;
 			sourceTree = "<group>";
@@ -108,6 +119,7 @@
 		C95516D92804C01000992EDD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C95516DA2804C0BB00992EDD /* Entry.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -182,7 +194,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95516DB2804C0BB00992EDD /* Entry.swift in Sources */,
+				C95516DF2804C84600992EDD /* EntryListTableViewController.swift in Sources */,
 				7EDA120F259D233600BBD350 /* AppDelegate.swift in Sources */,
+				C95516DD2804C51300992EDD /* EntryController.swift in Sources */,
+				C95516E12804CBF800992EDD /* EntryDetailViewController.swift in Sources */,
 				7EDA1211259D233600BBD350 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +347,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KMTDCPCY5V;
+				DEVELOPMENT_TEAM = ALTGSDSZNG;
 				INFOPLIST_FILE = Journal/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -350,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KMTDCPCY5V;
+				DEVELOPMENT_TEAM = ALTGSDSZNG;
 				INFOPLIST_FILE = Journal/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
