@@ -8,11 +8,12 @@
 import UIKit
 
 class EntryListTableViewController: UITableViewController {
+    //MARK: - Properties
+    var journal: Journal?
     
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        EntryController.shared.loadDataFromPersistenceStore()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,23 +22,25 @@ class EntryListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return EntryController.shared.entries.count
+        return journal?.entries.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
-
-        let entry = EntryController.shared.entries[indexPath.row]
+        guard let journal = journal else { return cell }
+        
+        let entry = journal.entries[indexPath.row]
         cell.textLabel?.text = entry.title
-
+        cell.detailTextLabel?.text = entry.stringTimestamp
         return cell
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            let entryToDelete = EntryController.shared.entries[indexPath.row]
-            EntryController.shared.delete(entry: entryToDelete)
+            guard let journal = journal else { return }
+            let entryToDelete = journal.entries[indexPath.row]
+            EntryController.delete(entry: entryToDelete, journal: journal)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -46,11 +49,17 @@ class EntryListTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //IIDOO Identifier, IndexPath, Destination, Object to send, Object to Recieve
-        if segue.identifier == "entryCellToEntryDetailView"{
-            guard let indexPath = tableView.indexPathForSelectedRow,
+        if segue.identifier == "entryCellToEntryDetailView" {
+            guard let journalToSend = journal,
+                  let indexPath = tableView.indexPathForSelectedRow,
                   let destination = segue.destination as? EntryDetailViewController else { return }
-            let entryToSend = EntryController.shared.entries[indexPath.row]
+            let entryToSend = journalToSend.entries[indexPath.row]
             destination.entry = entryToSend
+            destination.journal = journalToSend
+        }else if segue.identifier == "createNewEntry" {
+            guard let journalToSend = journal,
+                  let destination = segue.destination as? EntryDetailViewController else { return }
+            destination.journal = journalToSend
         }
     }
     

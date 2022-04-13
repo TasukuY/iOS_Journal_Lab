@@ -27,6 +27,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="38"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Dgn-UJ-FK4" id="Ffr-nN-R4u"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqj-R9-gbV">
                                                 <rect key="frame" x="0.0" y="46" width="331" height="38"/>
@@ -56,21 +59,21 @@
                                 <color key="backgroundColor" red="0.88208256409999997" green="0.88208256409999997" blue="0.88208256409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="journalCell" textLabel="g4S-YA-ajd" detailTextLabel="KW4-v0-amb" style="IBUITableViewCellStyleValue1" id="RS1-YZ-bzd">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="46.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RS1-YZ-bzd" id="nsn-HE-T9y">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="46.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g4S-YA-ajd">
-                                                    <rect key="frame" x="20" y="10" width="33.5" height="23.5"/>
+                                                    <rect key="frame" x="20" y="12" width="33.5" height="23.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KW4-v0-amb">
-                                                    <rect key="frame" x="347.5" y="10" width="46.5" height="23.5"/>
+                                                    <rect key="frame" x="347.5" y="12" width="46.5" height="23.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="18"/>
                                                     <nil key="textColor"/>
@@ -100,6 +103,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Journals" id="OJt-1R-iKm"/>
                     <connections>
+                        <outlet property="createNewJournalButton" destination="lqj-R9-gbV" id="0RB-hS-Ft5"/>
                         <outlet property="journalListTableView" destination="ukr-AB-DXK" id="CwY-BH-Jh9"/>
                         <outlet property="journalTitleTextField" destination="qzg-Y1-pio" id="h8H-XV-hB6"/>
                     </connections>
@@ -117,15 +121,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.88208256406013408" green="0.88208256406013408" blue="0.88208256406013408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" textLabel="OIc-py-fSm" style="IBUITableViewCellStyleDefault" id="5vh-We-cni">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="entryCell" textLabel="OIc-py-fSm" detailTextLabel="MDJ-uS-lMi" style="IBUITableViewCellStyleValue1" id="5vh-We-cni">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5vh-We-cni" id="Qbj-f2-bLj">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OIc-py-fSm">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text=" Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OIc-py-fSm">
+                                            <rect key="frame" x="20" y="15" width="28.5" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MDJ-uS-lMi">
+                                            <rect key="frame" x="361" y="15" width="33" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -147,7 +158,7 @@
                     <navigationItem key="navigationItem" title="Entries" id="xfX-QH-82n">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jm9-FD-n2z">
                             <connections>
-                                <segue destination="uKW-rk-iAT" kind="show" id="z6H-ii-vXF"/>
+                                <segue destination="uKW-rk-iAT" kind="show" identifier="createNewEntry" id="z6H-ii-vXF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -244,7 +255,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="10D-2V-3k3"/>
+        <segue reference="z6H-ii-vXF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

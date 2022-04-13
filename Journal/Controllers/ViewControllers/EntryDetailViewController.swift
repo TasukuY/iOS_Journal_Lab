@@ -10,6 +10,7 @@ import UIKit
 class EntryDetailViewController: UIViewController {
     //MARK: - Properties
     var entry: Entry?
+    var journal: Journal?
     
     //MARK: - IBOutlets
     @IBOutlet weak var titleTextField: UITextField!
@@ -28,11 +29,14 @@ class EntryDetailViewController: UIViewController {
     //MARK: - IBActions
     @IBAction func saveButtonTapped(_ sender: Any) {
         if let entry = self.entry {
-            print("to be implemented tomorrow \(entry)")
+            guard let title = titleTextField.text,
+                  let body = entryTextView.text else { return }
+            EntryController.update(entry: entry, title: title, body: body)
         }else{
-            if let title = titleTextField.text, let body = entryTextView.text{
-                EntryController.shared.createEntryWith(title: title, body: body)
-            }
+            guard let title = titleTextField.text,
+                  let body = entryTextView.text,
+                  let journal = self.journal else { return }
+                EntryController.createEntryWith(title: title, body: body, journal: journal)
         }
         navigationController?.popViewController(animated: true)
         /*
@@ -47,6 +51,7 @@ class EntryDetailViewController: UIViewController {
         titleTextField.text = ""
         entryTextView.text = ""
     }
+    
     //MARK: - Methods
     func updateView(){
         guard let entry = self.entry else { return }
@@ -55,3 +60,4 @@ class EntryDetailViewController: UIViewController {
     }
     
 }//End of class
+
